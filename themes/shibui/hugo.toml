@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://prayag2.github.io/'
 languageCode = 'en-US'
-title = 'My New Hugo Site'
+title = 'Prayag Jain'
 
 [menus]
   [[menus.main]]
@@ -17,6 +17,20 @@ title = 'My New Hugo Site'
     name = 'Tags'
     pageRef = '/tags'
     weight = 30
+
+  [[menus.main]]
+    name = 'GitHub'
+    url = 'https://github.com/prayag2'
+    weight = 40
+    [menus.main.params]
+      target = '_blank'
+
+  [[menus.main]]
+    name = 'KDE'
+    url = 'https://invent.kde.org/prayag'
+    weight = 50
+    [menus.main.params]
+      target = '_blank'
 
 [module]
   [module.hugoVersion]

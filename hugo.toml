@@ -1,4 +1,7 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://prayag2.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Prayag Jain'
 theme = 'shibui'
+
+[markup.goldmark.renderer]
+  unsafe = true

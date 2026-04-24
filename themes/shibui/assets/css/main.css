@@ -2,7 +2,7 @@
   /* Typography */
   --spacing-base: 1.5em;
   --font-family-mono: monospace;
-  --font-size-base: 1em;
+  --font-size-base: 1.25em;
   --font-size-small: 0.9em;
   --font-size-code: 0.95em;
 
@@ -15,18 +15,22 @@
   /* Base theme knobs */
   --bg-h: 0;
   --bg-s: 0%;
-  --bg-l: 99%;
+  --bg-l: 90%;
 
   /* Background colors */
   --color-bg-primary: hsl(var(--bg-h) var(--bg-s) var(--bg-l));
   --color-bg-secondary: hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) - 2%));
-  --color-border: hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) - 6%));
   --color-selection-bg: hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) - 13%));
 
   /* Text colors with WCAG-friendly contrast */
   /* Primary: ensures near-black on light bg and near-white on dark bg */
   --color-text-primary: hsl(
     var(--bg-h) var(--bg-s) clamp(8%, calc(100% - var(--bg-l)), 92%)
+  );
+
+  // --color-border: hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) - 6%));
+  --color-border: hsl(
+    var(--bg-h) var(--bg-s) clamp(30%, calc(100% - var(--bg-l)), 40%)
   );
 
   /* Muted: softer but still >4.5:1 contrast */
@@ -40,7 +44,7 @@
   );
 
   /* Layout */
-  --container-width: 64ch;
+  --container-width: 128ch;
   --pre-border-radius: 0.75rem;
   --inline-border-radius: 0.375rem;
   --gap-base: 1em;
@@ -49,6 +53,13 @@
   /* Breakpoints */
   --breakpoint-mobile: 600px;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-l: 10%;
+  }
+}
+
 
 /* Common component styles */
 .no-scrollbar {
