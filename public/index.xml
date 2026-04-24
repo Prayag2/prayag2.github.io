@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Prayag Jain</title>
-    <link>http://localhost:1313/</link>
+    <link>https://prayag2.github.io/</link>
     <description>Recent content in Home on Prayag Jain</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Apr 2026 22:30:58 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://prayag2.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Meet Drawy</title>
-      <link>http://localhost:1313/posts/meet-drawy/</link>
+      <link>https://prayag2.github.io/posts/meet-drawy/</link>
       <pubDate>Thu, 16 Apr 2026 22:30:58 +0530</pubDate>
-      <guid>http://localhost:1313/posts/meet-drawy/</guid>
+      <guid>https://prayag2.github.io/posts/meet-drawy/</guid>
       <description>&lt;picture&gt;&#xA;  &lt;source srcset=&#34;ss-dark.png&#34; media=&#34;(prefers-color-scheme: dark)&#34;&gt;&#xA;  &lt;img src=&#34;ss-light.png&#34; alt=&#34;Screenshot&#34; style=&#34;width: 100%;&#34;&gt;&#xA;&lt;/picture&gt;&#xA;&lt;p&gt;This is Drawy, KDE&amp;rsquo;s first infinite whiteboard app written entirely in C++ and Qt. It is inspired by the popular web-based Excalidraw. Its main focus is simplicity, ease of use, and performance. You get all the usual essential features, such as drawing tablet and touchscreen support, basic shapes like rectangles, ellipses, arrows with different arrowheads, lines, etc., text and image support, as well as many other features such as groups, reordering elements, alignment, etc.&lt;/p&gt;</description>
     </item>
   </channel>
