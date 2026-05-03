@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=33575&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -12,7 +12,7 @@
   Meet Drawy | Prayag Jain
 </title>
  
-<link rel="canonical" href="https://prayag2.github.io/posts/meet-drawy/" />
+<link rel="canonical" href="http://localhost:33575/posts/meet-drawy/" />
 
 
 <meta property="og:title" content="Meet Drawy" />
@@ -21,7 +21,7 @@
   property="og:type"
   content="article"
 />
-<meta property="og:url" content="https://prayag2.github.io/posts/meet-drawy/" />
+<meta property="og:url" content="http://localhost:33575/posts/meet-drawy/" />
  
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Meet Drawy" />
@@ -31,9 +31,9 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Meet Drawy",
-    "url": "https:\/\/prayag2.github.io\/posts\/meet-drawy\/",
-    "datePublished": "2026-04-16T22:30:58\u002b05:30",
-    "dateModified": "2026-04-16T22:30:58\u002b05:30"
+    "url": "http:\/\/localhost:33575\/posts\/meet-drawy\/",
+    "datePublished": "2026-05-03T21:30:00Z",
+    "dateModified": "2026-05-03T21:30:00Z"
   }
 </script>
  <link rel="apple-touch-icon" sizes="57x57" href="/favicon_io/apple-icon-57x57.png">
@@ -54,8 +54,8 @@
 <meta name="msapplication-TileImage" content="/favicon_io/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
  
-      <link rel="stylesheet" href="/css/main.min.45b21c73aa48485a9ea80f9d9e7ac856d3ee183cfe185d8f7d893be188dffa38.css" integrity="sha256-RbIcc6pISFqeqA&#43;dnnrIVtPuGDz&#43;GF2PfYk74Yjf&#43;jg=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
 
 
   </head>
@@ -129,10 +129,16 @@
   
 
    
-   <picture>
-  <source srcset="ss-dark.png" media="(prefers-color-scheme: dark)">
-  <img src="ss-light.png" alt="Screenshot" style="width: 100%;">
-</picture>
+   <p><figure>
+  <img
+    src="ss-light.png"
+    alt="Screenshot"
+    loading="lazy"
+    
+  />
+  <figcaption>Screenshot</figcaption>
+  </figure>
+</p>
 <p>This is Drawy, KDE&rsquo;s first infinite whiteboard app written entirely in C++ and Qt. It is inspired by the popular web-based Excalidraw. Its main focus is simplicity, ease of use, and performance. You get all the usual essential features, such as drawing tablet and touchscreen support, basic shapes like rectangles, ellipses, arrows with different arrowheads, lines, etc., text and image support, as well as many other features such as groups, reordering elements, alignment, etc.</p>
 <h2 id="why">Why?</h2>
 <p>There&rsquo;s a short story behind this. A few years back, I got myself an XP-Pen Deco Mini 7, which is a drawing tablet for brainstorming and studying digitally. I&rsquo;ve been a Linux user for many years, so it was natural that I looked for writing apps made for Linux. I stumbled upon Xournal++, which is an awesome FOSS note-taking app. I should mention that I wanted something for brainstorming and not for note-taking. I used it for a good number of days until I realized that I wanted an infinite canvas, as I hated navigating back and forth between pages whenever I ran out of space. I then discovered Lorien, which is a FOSS whiteboard app that features an infinite canvas. While it did the job, it lacked basic features such as resizing items, and its stroke smoothing felt average. I later tried RNote. It felt like the best app out there and worked flawlessly. The main issue that I found was that its interface required more clicks than necessary to perform certain actions. For example, if you wanted to create an ellipse, you&rsquo;d need to click on the shapes button -&gt; shape menu -&gt; ellipse. That&rsquo;s three clicks. This may sound like a small issue, but when you want to brainstorm quickly, it gets annoying. It also doesn&rsquo;t allow you to customize the keybindings. I then stumbled upon Excalidraw. It was a dream come true. It was simple, fast, infinite, and had plenty of features. However, it being a web-based app was its biggest downside for me. First, it lags a lot on Firefox. If you are a Firefox user, you will notice that Excalidraw does not offer the same performance as it does on Chromium-based browsers. For some weird reason, this problem is even worse in dark mode. Second, with web-based apps, you lose the ability to save files on your desktop and open them by double-clicking. I&rsquo;m also a computer science student in my pre-final year, so I was naturally looking for project ideas to work on to strengthen my skills. So I decided that I would make a whiteboard app in C++ because I enjoy working with C++. Qt felt like the natural choice, given that I wanted to work with C++.</p>
@@ -155,7 +161,7 @@
 </blockquote>
 
    <div class="time">
-     <time datetime="2026-04-16">2026-04-16&nbsp;</time>
+     <time datetime="2026-05-03">2026-05-03&nbsp;</time>
 
      
      
@@ -168,7 +174,26 @@
   
   
     <div class="comments">
-
+<div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prayag-jain" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
   
 

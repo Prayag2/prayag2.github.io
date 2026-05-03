@@ -37,3 +37,5 @@ title = 'Prayag Jain'
     extended = false
     min = '0.93.0'
 
+[params]
+    comments = true

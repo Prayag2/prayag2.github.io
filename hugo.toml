@@ -5,3 +5,11 @@ theme = 'shibui'
 
 [markup.goldmark.renderer]
   unsafe = true
+
+[params]
+  email = "prayagjain2@gmail.com"
+  comments = true
+
+[services]
+  [services.disqus]
+    shortname = 'prayag-jain'
