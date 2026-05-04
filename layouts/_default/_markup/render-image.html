@@ -1,0 +1,21 @@
+{{- $alt := .Text -}} {{- $src := .Destination -}} {{- $title := .Title -}}
+
+<figure>
+  <img
+    src="{{ $src }}"
+    alt="{{ $alt }}"
+    style="max-width: 100%"
+    loading="lazy"
+    {{
+    with
+    $title
+    }}
+    title="{{ . }}"
+    {{
+    end
+    }}
+  />
+  {{- with $alt }}
+  <figcaption>{{ . }}</figcaption>
+  {{ end -}}
+</figure>
