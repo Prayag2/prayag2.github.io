@@ -5,7 +5,7 @@ title = 'Meet Drawy'
 author = "Prayag Jain"
 +++
 
-![Screenshot](ss-light.png)
+![Screenshot](https://raw.githubusercontent.com/Prayag2/prayag2.github.io/refs/heads/master/content/posts/meet-drawy/ss-light.png)
 
 This is Drawy, KDE's first infinite whiteboard app written entirely in C++ and Qt. It is inspired by the popular web-based Excalidraw. Its main focus is simplicity, ease of use, and performance. You get all the usual essential features, such as drawing tablet and touchscreen support, basic shapes like rectangles, ellipses, arrows with different arrowheads, lines, etc., text and image support, as well as many other features such as groups, reordering elements, alignment, etc.
 
