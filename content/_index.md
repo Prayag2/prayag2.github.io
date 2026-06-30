@@ -8,3 +8,4 @@ I like building efficient software, writing clean and maintainable code, and und
 
 # Featured Posts
 - [Meet Drawy](/posts/meet-drawy)
+- [Heavy Light Decomposition - Explained](/posts/heavy-light-decomposition)

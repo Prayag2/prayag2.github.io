@@ -6,9 +6,19 @@ theme = 'shibui'
 [markup.goldmark.renderer]
   unsafe = true
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
+
 [params]
   email = "prayagjain2@gmail.com"
   comments = true
+  math = true
 
 [services]
   [services.disqus]

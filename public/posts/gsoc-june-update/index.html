@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<title>
+  GSoC - Working on Marknote | Prayag Jain
+</title>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)'], ['$', '$']]                  
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
+
+ 
+<link rel="canonical" href="http://localhost:1313/posts/gsoc-june-update/" />
+
+
+<meta property="og:title" content="GSoC - Working on Marknote" />
+
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta property="og:url" content="http://localhost:1313/posts/gsoc-june-update/" />
+ 
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="GSoC - Working on Marknote" />
+      
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GSoC - Working on Marknote",
+    "url": "http:\/\/localhost:1313\/posts\/gsoc-june-update\/",
+    "datePublished": "2026-06-30T17:00:00Z",
+    "dateModified": "2026-06-30T17:00:00Z"
+  }
+</script>
+ <link rel="apple-touch-icon" sizes="57x57" href="/favicon_io/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon_io/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon_io/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon_io/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon_io/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon_io/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon_io/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon_io/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon_io/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon_io/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="/favicon_io/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicon_io/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+ 
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <header role="banner"><nav class="path-nav" aria-label="Breadcrumb">
+  <ol>
+    
+  
+    
+  
+    
+  
+  <li>
+    /
+    <a href="/">Prayag Jain</a>
+    /
+  </li>
+
+  
+  <li>
+    
+    <a href="/posts/">Posts</a>
+    /
+  </li>
+
+  
+  <li class="current">
+    
+    <a href="/posts/gsoc-june-update/">GSoC - Working on Marknote</a>
+    
+  </li>
+
+  </ol>
+</nav>
+
+
+
+</header>
+    <main id="main-content" role="main">
+  <h1>GSoC - Working on Marknote</h1>
+  
+
+
+  
+  
+  
+  
+    <nav class="toc">
+      <strong>Table of contents</strong>
+      <div class="toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#integrating-md4qt">Integrating md4qt</a></li>
+    <li><a href="#building-markdown-model">Building Markdown Model</a></li>
+    <li><a href="#getting-data-to-qml">Getting Data to QML</a></li>
+    <li><a href="#implementing-delegates">Implementing Delegates</a></li>
+  </ul>
+</nav>
+      </div>
+    </nav>
+  
+
+   
+   <h1 id="overview">Overview</h1>
+<p>I&rsquo;m working on Marknote to introduce a block-editor inspired by popular note taking apps such as Notion. A block editor is a modern text editor that allows you to insert elements such as paragraphs, lists, tables, code, block quotes, etc. into separate blocks. Each block can be reordered, edited, and deleted. Such editors also give you the ability to insert elements by pressing &ldquo;/&rdquo; followed by the name of the element. This block based design of these editors make them very fun and intuitive to use.</p>
+<p>A problem that most of these editors have in common is incomplete markdown support. They do not support the full <a href="https://commonmark.org/">commonmark</a> spec. This means many things like nested blockquotes are not possible to use. Other problems include privacy concerns due to their closed sourced nature. They also are mostly web-based applications so they&rsquo;re slow. This is where Marknote comes in. Marknote already is a popular note taking app by KDE. By introducing a robust block editor, users will be able to have a similar experience in an app that integrates beautifully with the KDE ecosystem, is offline, and most importantly respects privacy.</p>
+<h1 id="current-status">Current Status</h1>
+<p>GSoC&rsquo;s coding period began on 25th May 2026. Unfortunately, my university exams began at the same time and ended on 11th June 2026. So I was not available for the first few weeks. I was still able to implement a big portion of the project.</p>
+<h2 id="integrating-md4qt">Integrating md4qt</h2>
+<p>I spent the first few days making md4qt a dependency of Marknote. It involved adding it into CI images, creating a KDE Craft blueprint, updating the flatpak config as well, and finally making sure it builds correctly using CMake.</p>
+<h2 id="building-markdown-model">Building Markdown Model</h2>
+<p>After md4qt was finally usable in Marknote, I started working on developing the <code>AsyncDocBuilder</code>. This class allows Marknote to read a markdown file asynchronously (without blocking the UI), and emit a signal with an Abstract Syntax Tree (AST) which represents the parsed markdown document.</p>
+<p>After that, I had to implement a tree model that represents the AST. The tree model inherits from <code>QAbstractItemModel</code>. It uses a wrapper class called the <code>TreeItem</code> that wraps around the AST. This represents a simple tree data structure where each node can have more than 1 children nodes. I was able to implement a working model succesfully, although it required a lot of brainstorming.</p>
+<h2 id="getting-data-to-qml">Getting Data to QML</h2>
+<p>The tree model represented elements in the parsed markdown document. Each element may have different properties. For example, headings have a <code>level</code>, lists have a <code>listType</code>, etc. Since this model will be used in QML, the data must be accessible in QML. For that, I wrote multiple helper functions that would extract data from each node and insert them into a <code>QVariantMap</code>. This map would be accessible from the <code>blockData</code> role of the tree model, allowing me to easily access properties about these nodes in QML.</p>
+<h2 id="implementing-delegates">Implementing Delegates</h2>
+<p>Now that the model is ready to use, we need QML delegates that will actually be rendered on screen. The biggest challenge here is that this model represents a tree. This means some elements can be present inside other elements. The standard built-in <code>TreeView</code> would not work here. The reason is that, instead of truly nesting QML elements, it uses indents to show a tree like structure. This is fine for things like file trees, but not for a block editor. In a markdown compliant block editor, the QML elements must truly be nested. To tackle this problem, I had to brainstorm for a week. I tried multiple techniques. One was using a Repeater where the Delegates call themselves, recursively. While this worked, it wasn&rsquo;t compatible with the tree model that we have created. After a bunch of research, I found out about <code>DelegateModel</code>. It acts as a filter for models in QML. So I could just define a root index for the current view without modifying the actual model. So recursion was finally compatible with the existing tree model.</p>
+<p>This step is still under progress. You can see in the attached video that basic markdown elements can be rendered. These are not editable yet, but markdown parsing and rendering works flawlessly.</p>
+
+
+<video controls width="100%">
+  <source src="/posts/gsoc-june-update/video.webm" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>Working on the block editor this month has been very exciting and challenging. There were some totally new problems that I had to solve that I didn&rsquo;t foresee submitting my proposal. As always, this blog post does not involve the use of AI. All words are my own so it may contain grammatical errors :P</p>
+
+   <div class="time">
+     <time datetime="2026-06-30">2026-06-30&nbsp;</time>
+
+     
+     
+       <span class="reading-time"> · 4 min read</span>
+     
+     
+     
+   </div>
+
+  
+  
+    <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prayag-jain" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  
+
+  
+    <div class="terminal-nav">
+      <div class="back-nav">
+        
+          <a href="/posts/" class="back-link">../</a>
+        
+      </div>
+    </div>
+  
+</main>
+    <footer role="contentinfo"><p role="contentinfo">
+  &copy; Copyright 2026 &middot;
+  <a href="https://github.com/prayag2">Prayag Jain</a>
+</p>
+</footer>
+  </body>
+</html>
