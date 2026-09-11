@@ -5,6 +5,7 @@ title = 'Google Summer of Code Update'
 subtitle = 'Working on Marknote'
 author = "Prayag Jain"
 hideFromRSS = false
+thumbnail = "thumb.png"
 +++
 
 # Overview

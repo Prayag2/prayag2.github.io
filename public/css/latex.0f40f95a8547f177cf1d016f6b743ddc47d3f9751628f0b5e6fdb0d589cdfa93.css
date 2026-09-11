@@ -368,24 +368,36 @@ a:hover {
   margin: 0;
 }
 
-/* Home Page Layout */
-.home-container {
-  width: 100%;
-}
-
-.home-about-section {
-  width: 100%;
-}
-
-.home-divider {
-  border: none;
-  border-top: var(--rule-thin);
-  margin: 3rem 0 2.5rem 0;
+/* Home Page Layout (Floated Sidebar allows About Me to wrap underneath) */
+.home-columns {
   display: block;
 }
 
-.home-recent-posts {
-  width: 100%;
+.home-columns::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.home-right-col {
+  float: right;
+  width: 350px;
+  max-width: 42%;
+  margin-left: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0 1rem 2.5rem;
+  border-left: 1px solid var(--rule-color);
+  box-sizing: border-box;
+}
+
+.home-left-col {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.home-divider {
+  display: none;
 }
 
 /* Home Page Article Headings (Customizable via --home-h1-size .. --home-h6-size) */
@@ -1014,8 +1026,30 @@ figcaption {
     gap: 1.5rem 2.5rem;
   }
 
+  .home-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .home-left-col {
+    order: 1;
+    padding: 0;
+  }
+
+  .home-right-col {
+    order: 2;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 2.25rem 0 0 0;
+    padding: 1.75rem 0 0 0;
+    border-left: none;
+    border-top: 1px solid var(--rule-color);
+  }
+
   .home-divider {
-    margin: 2.25rem 0 1.75rem 0;
+    display: none;
   }
 
   .article-content,

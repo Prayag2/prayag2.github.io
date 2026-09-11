@@ -4,7 +4,7 @@ draft = false
 title = 'Meet Drawy'
 subtitle = "Your Handy, Infinite Brainstorming Tool"
 author = "Prayag Jain"
-thumbnail = "ss-light.png"
+thumbnail = "thumb.png"
 +++
 
 ![Screenshot](https://raw.githubusercontent.com/Prayag2/prayag2.github.io/refs/heads/master/content/posts/meet-drawy/ss-light.png)
