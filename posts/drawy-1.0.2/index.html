@@ -1,145 +1,102 @@
 <!DOCTYPE html>
-<html
-  lang="en-us"
-  dir="ltr"
->
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8" />
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<title>
-  Drawy 1.0.2 Released | Prayag Jain
-</title>
+<title>Drawy 1.0.2 Released | Prayag Jain</title>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 
-<script>
-  MathJax = {
-    tex: {
-      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
-      inlineMath: [['\\(', '\\)'], ['$', '$']]                  
-    },
-    loader:{
-      load: ['ui/safe']
-    },
-  };
+<link rel="canonical" href="https://prayag2.github.io/posts/drawy-1.0.2/" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/latex.cb764b7eb5a30be0b5d7779838b5d3dd970cc0d8ea7693ee1b011a3120cfc57d.css" integrity="sha256-y3ZLfrWjC&#43;C113eYOLXT3ZcMwNjqdpPuGwEaMSDPxX0=">
+
+
+  
+  <link rel="stylesheet" href="/css/syntax.30ea641d4f4c3a818d032d517c22288f89dfe18938e745bd9a87a5e1ebb58c92.css" integrity="sha256-MOpkHU9MOoGNAy1RfCIoj4nf4Yk450W9moel4eu1jJI=">
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });">
 </script>
 
 
- 
-<link rel="canonical" href="http://localhost:1313/posts/drawy-1.0.2/" />
 
 
 <meta property="og:title" content="Drawy 1.0.2 Released" />
 
-<meta
-  property="og:type"
-  content="article"
-/>
-<meta property="og:url" content="http://localhost:1313/posts/drawy-1.0.2/" />
- 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Drawy 1.0.2 Released" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://prayag2.github.io/posts/drawy-1.0.2/" />
+
+
+</head>
+<body>
+  <div class="container">
+    
+  <header class="article-header">
+    
+      <h1 class="article-title">Drawy 1.0.2 Released</h1>
+    
+    <div class="article-meta-group">
       
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Drawy 1.0.2 Released",
-    "url": "http:\/\/localhost:1313\/posts\/drawy-1.0.2\/",
-    "datePublished": "2026-06-03T03:20:00Z",
-    "dateModified": "2026-06-03T03:20:00Z"
-  }
-</script>
- <link rel="apple-touch-icon" sizes="57x57" href="/favicon_io/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/favicon_io/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/favicon_io/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/favicon_io/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/favicon_io/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/favicon_io/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/favicon_io/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/favicon_io/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/favicon_io/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon_io/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="/favicon_io/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/favicon_io/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
- 
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/custom.css">
+        <div class="article-date">3rd June 2026</div>
+      
+      
+        <div class="article-author">Prayag Jain</div>
+      
+      
+        <div class="article-readtime">~1min read</div>
+      
+    </div>
+  </header>
 
 
-  </head>
-  <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-    <header role="banner"><nav class="path-nav" aria-label="Breadcrumb">
-  <ol>
-    
-  
-    
-  
-    
-  
-  <li>
-    /
-    <a href="/">Prayag Jain</a>
-    /
-  </li>
-
-  
-  <li>
-    
-    <a href="/posts/">Posts</a>
-    /
-  </li>
-
-  
-  <li class="current">
-    
-    <a href="/posts/drawy-1.0.2/">Drawy 1.0.2 Released</a>
-    
-  </li>
-
-  </ol>
+    <nav class="site-nav" aria-label="Main Navigation">
+  <div class="nav-container"><a class="nav-item"
+         href="/" target="_blank" rel="noopener noreferrer">Home</a><a class="nav-item"
+         href="/posts/" target="_blank" rel="noopener noreferrer">Posts</a><a class="nav-item"
+         href="https://github.com/Prayag2" target="_blank" rel="noopener noreferrer">GitHub</a><a class="nav-item"
+         href="https://invent.kde.org/prayag" target="_blank" rel="noopener noreferrer">KDE</a><a class="nav-item"
+         href="mailto:prayagjain2@gmail.com" target="_blank" rel="noopener noreferrer">Contact</a></div>
 </nav>
 
-
-
-</header>
-    <main id="main-content" role="main">
-  <h1>Drawy 1.0.2 Released</h1>
-  
-
-
-  
-  
-  
-  
-
-   
-   <h1 id="hello">Hello</h1>
+    <main id="main-content">
+      
+<article class="article-page">
+  <section class="toc-section" aria-label="Table of Contents">
+    <div class="toc-title">Contents</div>
+    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#hello">Hello</a></li>
+  </ol>
+</nav>
+  </section>
+  <hr class="toc-divider" /><div class="article-content">
+    <h1 id="hello">Hello</h1>
 <p>hello</p>
 
-   <div class="time">
-     <time datetime="2026-06-03">2026-06-03&nbsp;</time>
+  </div>
 
-     
-     
-       <span class="reading-time"> · 1 min read</span>
-     
-     
-     
-   </div>
-
-  
-  
-    <div class="comments">
-<div id="disqus_thread"></div>
+  <section class="comments-section" aria-label="Comments">
+    <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -159,23 +116,13 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-  
+  </section>
+</article>
 
-  
-    <div class="terminal-nav">
-      <div class="back-nav">
-        
-          <a href="/posts/" class="back-link">../</a>
-        
-      </div>
-    </div>
-  
-</main>
-    <footer role="contentinfo"><p role="contentinfo">
-  &copy; Copyright 2026 &middot;
-  <a href="https://github.com/prayag2">Prayag Jain</a>
-</p>
+    </main>
+    <footer class="site-footer"><p class="footer-tagline">I build things, understand them under the hood, and write far too much object-oriented programming.</p><p class="footer-copyright">© 2026 Prayag Jain</p>
 </footer>
-  </body>
+
+  </div>
+</body>
 </html>
