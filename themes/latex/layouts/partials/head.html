@@ -1,0 +1,95 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'sepia' || saved === 'light') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>
+<title>{{ if .IsHome }}{{ site.Title }}{{ with site.Params.subtitle }} - {{ . }}{{ end }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+{{ with .Description | default .Site.Params.description }}
+<meta name="description" content="{{ . }}" />
+{{ end }}
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<!-- Google Fonts: Courier Prime (Monospace) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<!-- TeX Gyre Schola Font -->
+{{ $scholaRegular := resources.Get "tex-gyre-schola/texgyreschola-regular.otf" }}
+{{ $scholaItalic := resources.Get "tex-gyre-schola/texgyreschola-italic.otf" }}
+{{ $scholaBold := resources.Get "tex-gyre-schola/texgyreschola-bold.otf" }}
+{{ $scholaBoldItalic := resources.Get "tex-gyre-schola/texgyreschola-bolditalic.otf" }}
+{{ if $scholaRegular }}
+<link rel="preload" href="{{ $scholaRegular.RelPermalink }}" as="font" type="font/otf" crossorigin>
+<style>
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('{{ $scholaRegular.RelPermalink }}') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+{{ with $scholaItalic }}
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('{{ .RelPermalink }}') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+{{ end }}
+{{ with $scholaBold }}
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('{{ .RelPermalink }}') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+{{ end }}
+{{ with $scholaBoldItalic }}
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('{{ .RelPermalink }}') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+{{ end }}
+</style>
+{{ end }}
+
+<!-- Theme Stylesheets -->
+{{ $css := resources.Get "css/latex.css" | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{ with resources.Get "css/syntax.css" }}
+  {{ $syntax := . | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $syntax.RelPermalink }}" integrity="{{ $syntax.Data.Integrity }}">
+{{ end }}
+
+<!-- Math Support (KaTeX) -->
+{{ if or site.Params.math .Params.math }}
+  {{ partial "math.html" . }}
+{{ end }}
+
+<!-- Open Graph & Twitter -->
+<meta property="og:title" content="{{ .Title }}" />
+{{ with .Description | default site.Params.description }}
+<meta property="og:description" content="{{ . }}" />
+{{ end }}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{ with .OutputFormats.Get "rss" -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}" />
+{{ end -}}

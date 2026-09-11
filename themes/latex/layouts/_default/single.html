@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article class="article-page">
+  {{ partial "toc.html" . }}
+
+  {{- if or .Params.showThumbnailInPost site.Params.showThumbnailInPost -}}
+    {{- with .Params.thumbnail | default .Params.image -}}
+      <div class="article-featured-image">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" />
+      </div>
+    {{- end -}}
+  {{- end -}}
+
+  {{- $numberHeadings := true -}}
+  {{- if isset site.Params "numberheadings" -}}
+    {{- $numberHeadings = site.Params.numberHeadings -}}
+  {{- end -}}
+  {{- if isset .Params "numberheadings" -}}
+    {{- $numberHeadings = .Params.numberHeadings -}}
+  {{- end -}}
+
+  <div class="article-content{{ if $numberHeadings }} numbered-headings{{ end }}">
+    {{ .Content }}
+  </div>
+
+  {{ partial "comments.html" . }}
+</article>
+{{ end }}

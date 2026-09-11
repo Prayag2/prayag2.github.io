@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="home-columns">
+  <section class="home-left-col" aria-label="About">
+    <div class="home-about-content">
+      {{ .Content }}
+    </div>
+  </section>
+  <div class="home-divider" aria-hidden="true"></div>
+  <aside class="home-right-col" aria-label="Recent Posts">
+    <h2 class="section-heading">{{ site.Params.recentPostsHeading | default "Recent Posts" }}</h2>
+    <div class="recent-posts-list">
+      {{- $recentLimit := site.Params.recentPostsCount | default 3 -}}
+      {{- $posts := where site.RegularPages "Section" "posts" -}}
+      {{- range first $recentLimit $posts -}}
+        <article class="recent-post-item">
+          <h3 class="recent-post-title">
+            <a href="{{ .RelPermalink }}"{{ if site.Params.openLinksInNewTab }} target="_blank" rel="noopener noreferrer"{{ end }}>
+              {{- .Title -}}
+            </a>
+          </h3>
+          {{- with .Params.subtitle | default (.Params.description | default .Summary) -}}
+            <p class="recent-post-summary">{{ . | plainify | truncate (site.Params.recentPostsSummaryLength | default 80) }}</p>
+          {{- end -}}
+        </article>
+      {{- end -}}
+    </div>
+  </aside>
+</div>
+{{ end }}

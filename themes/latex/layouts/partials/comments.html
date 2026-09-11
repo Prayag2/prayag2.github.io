@@ -1,0 +1,5 @@
+{{- if and site.Config.Services.Disqus.Shortname (ne .Params.comments false) (or site.Params.comments .Params.comments) -}}
+  <section class="comments-section" aria-label="Comments">
+    {{ template "_internal/disqus.html" . }}
+  </section>
+{{- end -}}

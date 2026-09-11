@@ -1,0 +1,7 @@
+{{- if and .TableOfContents (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") (ne .Params.toc false) -}}
+  <section class="toc-section" aria-label="Table of Contents">
+    <div class="toc-title">{{ site.Params.tocTitle | default "Contents" }}</div>
+    {{ .TableOfContents }}
+  </section>
+  <hr class="toc-divider" />
+{{- end -}}

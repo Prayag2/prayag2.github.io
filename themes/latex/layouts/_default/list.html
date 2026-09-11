@@ -1,0 +1,36 @@
+{{ define "main" }}
+<section class="posts-page" aria-label="Posts">
+  <div class="posts-page-header">
+    <h2 class="section-heading">{{ .Title | default (site.Params.postsHeading | default "Posts") }}</h2>
+  </div>
+  <div class="posts-list-container">
+    {{- $pages := .Pages -}}
+    {{- if .IsSection -}}
+      {{- $pages = .RegularPages -}}
+    {{- end -}}
+    {{- range $pages -}}
+      <article class="post-item-row">
+        {{ partial "thumbnail.html" . }}
+        <div class="post-info">
+          <h3 class="post-info-title">
+            <a href="{{ .RelPermalink }}"{{ if site.Params.openLinksInNewTab }} target="_blank" rel="noopener noreferrer"{{ end }}>
+              {{- .Title -}}
+            </a>
+          </h3>
+          {{- with .Params.subtitle | default (.Params.description | default .Summary) -}}
+            <p class="post-info-summary">{{ . | plainify | truncate (site.Params.postsSummaryLength | default 120) }}</p>
+          {{- end -}}
+        </div>
+        <div class="post-meta-right">
+          {{- if and .Date (not .Date.IsZero) -}}
+            <time class="post-meta-date">{{ partial "format-date.html" . }}</time>
+          {{- end -}}
+          {{- if gt .ReadingTime 0 -}}
+            <span class="post-meta-readtime">{{ .ReadingTime }}{{ site.Params.readingTimeSuffix | default "min read" }}</span>
+          {{- end -}}
+        </div>
+      </article>
+    {{- end -}}
+  </div>
+</section>
+{{ end }}

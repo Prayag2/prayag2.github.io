@@ -1,144 +1,229 @@
 <!DOCTYPE html>
-<html
-  lang="en-us"
-  dir="ltr"
->
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8" />
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<title>
-  GSoC - Working on Marknote | Prayag Jain
-</title>
+<meta name="color-scheme" content="light dark" />
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'sepia' || saved === 'light') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>
+<title>Google Summer of Code Update | Prayag Jain</title>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+<link rel="canonical" href="https://prayag2.github.io/posts/gsoc-june-update/" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+<link rel="preload" href="/tex-gyre-schola/texgyreschola-regular.otf" as="font" type="font/otf" crossorigin>
+<style>
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('/tex-gyre-schola/texgyreschola-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('/tex-gyre-schola/texgyreschola-italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('/tex-gyre-schola/texgyreschola-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('/tex-gyre-schola/texgyreschola-bolditalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+</style>
+
+
+
+
+<link rel="stylesheet" href="/css/latex.d4bc2cf824cd2e0fab304d3824c2480713058aa7dd6add054fc578928adddecd.css" integrity="sha256-1Lws&#43;CTNLg&#43;rME04JMJIBxMFiqfdat0FT8V4kord3s0=">
+
+
+  
+  <link rel="stylesheet" href="/css/syntax.2dba71c87022823d5e58adc9824edb464d2f281df5cacd6a871fa496b7774c32.css" integrity="sha256-LbpxyHAigj1eWK3Jgk7bRk0vKB31ys1qhx&#43;klrd3TDI=">
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });">
+</script>
+
+
+
+
+<meta property="og:title" content="Google Summer of Code Update" />
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://prayag2.github.io/posts/gsoc-june-update/" />
+
+
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Theme: Light (click to switch to Sepia)" title="Theme: Light (click to switch to Sepia)">
+  <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+  </svg>
+  <svg class="book-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+  </svg>
+  <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
 
 <script>
-  MathJax = {
-    tex: {
-      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
-      inlineMath: [['\\(', '\\)'], ['$', '$']]                  
-    },
-    loader:{
-      load: ['ui/safe']
-    },
-  };
+  (function() {
+    var themeOrder = ['light', 'sepia', 'dark'];
+    var themeLabels = {
+      'light': { current: 'Light', next: 'Sepia' },
+      'sepia': { current: 'Sepia', next: 'Dark' },
+      'dark':  { current: 'Dark',  next: 'Light' }
+    };
+
+    function getActiveTheme() {
+      var attr = document.documentElement.getAttribute('data-theme');
+      if (attr === 'dark' || attr === 'sepia' || attr === 'light') return attr;
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark' || stored === 'sepia' || stored === 'light') return stored;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function updateButton(theme) {
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      var info = themeLabels[theme] || themeLabels['light'];
+      var label = 'Theme: ' + info.current + ' (click for ' + info.next + ')';
+      btn.setAttribute('title', label);
+      btn.setAttribute('aria-label', label);
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (e) {}
+      updateButton(theme);
+    }
+
+    var toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+      updateButton(getActiveTheme());
+      toggleBtn.addEventListener('click', function() {
+        var current = getActiveTheme();
+        var idx = themeOrder.indexOf(current);
+        if (idx === -1) idx = 0;
+        var next = themeOrder[(idx + 1) % themeOrder.length];
+        setTheme(next);
+      });
+    }
+  })();
 </script>
 
-
- 
-<link rel="canonical" href="http://localhost:1313/posts/gsoc-june-update/" />
-
-
-<meta property="og:title" content="GSoC - Working on Marknote" />
-
-<meta
-  property="og:type"
-  content="article"
-/>
-<meta property="og:url" content="http://localhost:1313/posts/gsoc-june-update/" />
- 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="GSoC - Working on Marknote" />
+  <div class="container">
+    
+  <header class="article-header">
+    
+      <h1 class="article-title">Google Summer of Code Update</h1>
+    
+    
+      <div class="article-subtitle">Working on Marknote</div>
+    
+    <div class="article-meta-group">
       
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "GSoC - Working on Marknote",
-    "url": "http:\/\/localhost:1313\/posts\/gsoc-june-update\/",
-    "datePublished": "2026-06-30T17:00:00Z",
-    "dateModified": "2026-06-30T17:00:00Z"
-  }
-</script>
- <link rel="apple-touch-icon" sizes="57x57" href="/favicon_io/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/favicon_io/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/favicon_io/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/favicon_io/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/favicon_io/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/favicon_io/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/favicon_io/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/favicon_io/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/favicon_io/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon_io/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="/favicon_io/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/favicon_io/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
- 
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/custom.css">
+        <div class="article-date">30th June 2026</div>
+      
+      
+        <div class="article-author">Prayag Jain</div>
+      
+      
+        <div class="article-readtime">~4min read</div>
+      
+    </div>
+  </header>
 
 
-  </head>
-  <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-    <header role="banner"><nav class="path-nav" aria-label="Breadcrumb">
+    <nav class="site-nav" aria-label="Main Navigation">
+  <div class="nav-container"><a class="nav-item"
+         href="/">Home</a><a class="nav-item"
+         href="/posts/">Posts</a><a class="nav-item"
+         href="https://github.com/Prayag2" target="_blank" rel="noopener noreferrer">GitHub</a><a class="nav-item"
+         href="https://invent.kde.org/prayag" target="_blank" rel="noopener noreferrer">KDE</a><a class="nav-item"
+         href="mailto:prayagjain2@gmail.com" target="_blank" rel="noopener noreferrer">Contact</a></div>
+</nav>
+
+    <main id="main-content">
+      
+<article class="article-page">
+  <section class="toc-section" aria-label="Table of Contents">
+    <div class="toc-title">Contents</div>
+    <nav id="TableOfContents">
   <ol>
-    
-  
-    
-  
-    
-  
-  <li>
-    /
-    <a href="/">Prayag Jain</a>
-    /
-  </li>
-
-  
-  <li>
-    
-    <a href="/posts/">Posts</a>
-    /
-  </li>
-
-  
-  <li class="current">
-    
-    <a href="/posts/gsoc-june-update/">GSoC - Working on Marknote</a>
-    
-  </li>
-
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#current-status">Current Status</a>
+      <ol>
+        <li><a href="#integrating-md4qt">Integrating md4qt</a></li>
+        <li><a href="#building-markdown-model">Building Markdown Model</a></li>
+        <li><a href="#getting-data-to-qml">Getting Data to QML</a></li>
+        <li><a href="#implementing-delegates">Implementing Delegates</a></li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ol>
 </nav>
-
-
-
-</header>
-    <main id="main-content" role="main">
-  <h1>GSoC - Working on Marknote</h1>
-  
-
-
-  
-  
-  
-  
-    <nav class="toc">
-      <strong>Table of contents</strong>
-      <div class="toc-content">
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#integrating-md4qt">Integrating md4qt</a></li>
-    <li><a href="#building-markdown-model">Building Markdown Model</a></li>
-    <li><a href="#getting-data-to-qml">Getting Data to QML</a></li>
-    <li><a href="#implementing-delegates">Implementing Delegates</a></li>
-  </ul>
-</nav>
-      </div>
-    </nav>
-  
-
-   
-   <h1 id="overview">Overview</h1>
+  </section>
+  <hr class="toc-divider" /><div class="article-content numbered-headings">
+    <h1 id="overview">Overview</h1>
 <p>I&rsquo;m working on Marknote to introduce a block-editor inspired by popular note taking apps such as Notion. A block editor is a modern text editor that allows you to insert elements such as paragraphs, lists, tables, code, block quotes, etc. into separate blocks. Each block can be reordered, edited, and deleted. Such editors also give you the ability to insert elements by pressing &ldquo;/&rdquo; followed by the name of the element. This block based design of these editors make them very fun and intuitive to use.</p>
-<p>A problem that most of these editors have in common is incomplete markdown support. They do not support the full <a href="https://commonmark.org/">commonmark</a> spec. This means many things like nested blockquotes are not possible to use. Other problems include privacy concerns due to their closed sourced nature. They also are mostly web-based applications so they&rsquo;re slow. This is where Marknote comes in. Marknote already is a popular note taking app by KDE. By introducing a robust block editor, users will be able to have a similar experience in an app that integrates beautifully with the KDE ecosystem, is offline, and most importantly respects privacy.</p>
+<p>A problem that most of these editors have in common is incomplete markdown support. They do not support the full <a href="https://commonmark.org/" target="_blank" rel="noopener noreferrer">commonmark</a>
+ spec. This means many things like nested blockquotes are not possible to use. Other problems include privacy concerns due to their closed sourced nature. They also are mostly web-based applications so they&rsquo;re slow. This is where Marknote comes in. Marknote already is a popular note taking app by KDE. By introducing a robust block editor, users will be able to have a similar experience in an app that integrates beautifully with the KDE ecosystem, is offline, and most importantly respects privacy.</p>
 <h1 id="current-status">Current Status</h1>
 <p>GSoC&rsquo;s coding period began on 25th May 2026. Unfortunately, my university exams began at the same time and ended on 11th June 2026. So I was not available for the first few weeks. I was still able to implement a big portion of the project.</p>
 <h2 id="integrating-md4qt">Integrating md4qt</h2>
@@ -161,21 +246,10 @@
 <h1 id="conclusion">Conclusion</h1>
 <p>Working on the block editor this month has been very exciting and challenging. There were some totally new problems that I had to solve that I didn&rsquo;t foresee submitting my proposal. As always, this blog post does not involve the use of AI. All words are my own so it may contain grammatical errors :P</p>
 
-   <div class="time">
-     <time datetime="2026-06-30">2026-06-30&nbsp;</time>
+  </div>
 
-     
-     
-       <span class="reading-time"> · 4 min read</span>
-     
-     
-     
-   </div>
-
-  
-  
-    <div class="comments">
-<div id="disqus_thread"></div>
+  <section class="comments-section" aria-label="Comments">
+    <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -195,23 +269,13 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-  
+  </section>
+</article>
 
-  
-    <div class="terminal-nav">
-      <div class="back-nav">
-        
-          <a href="/posts/" class="back-link">../</a>
-        
-      </div>
-    </div>
-  
-</main>
-    <footer role="contentinfo"><p role="contentinfo">
-  &copy; Copyright 2026 &middot;
-  <a href="https://github.com/prayag2">Prayag Jain</a>
-</p>
+    </main>
+    <footer class="site-footer"><p class="footer-tagline">Did I mention that I like object-oriented programming?</p><p class="footer-copyright">© 2026 Prayag Jain</p>
 </footer>
-  </body>
+
+  </div>
+</body>
 </html>

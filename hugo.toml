@@ -1,13 +1,53 @@
 baseURL = 'https://prayag2.github.io/'
 languageCode = 'en-us'
 title = 'Prayag Jain'
-theme = 'shibui'
+theme = 'latex'
 
-[markup.goldmark.renderer]
-  unsafe = true
+[params]
+  subtitle = 'Software Engineer'
+  author = 'Prayag Jain'
+  email = 'prayagjain2@gmail.com'
+  footerBio = 'Did I mention that I like object-oriented programming?'
+  copyright = '© 2026 Prayag Jain'
+  
+  # Navigation & Layout
+  recentPostsHeading = 'Recent Posts'
+  recentPostsCount = 3
+  recentPostsSummaryLength = 80
+  postsHeading = 'Posts'
+  postsSummaryLength = 120
+  
+  # Link behavior
+  openLinksInNewTab = false
+  openExternalLinksInNewTab = true
+
+  # Reading Time & Dates
+  # dateFormat = '2 January 2006' # Uncomment to override ordinal default (e.g. 5th August 2026)
+  readingTimePrefix = '~'
+  readingTimeSuffix = 'min read'
+
+  # Features
+  math = true
+  comments = true
+  numberHeadings = true
+  showThumbnailInPost = false
+  tocTitle = 'Contents'
+
+[services]
+  [services.disqus]
+    shortname = 'prayag-jain'
 
 [markup]
+  [markup.highlight]
+    noClasses = false
+    style = 'friendly'
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
+    ordered = true
   [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
     [markup.goldmark.extensions]
       [markup.goldmark.extensions.passthrough]
         enable = true
@@ -15,11 +55,27 @@ theme = 'shibui'
           block = [['\[', '\]'], ['$$', '$$']]
           inline = [['\(', '\)'], ['$', '$']]
 
-[params]
-  email = "prayagjain2@gmail.com"
-  comments = true
-  math = true
+[[menu.main]]
+  name = 'Home'
+  url = '/'
+  weight = 1
 
-[services]
-  [services.disqus]
-    shortname = 'prayag-jain'
+[[menu.main]]
+  name = 'Posts'
+  url = '/posts/'
+  weight = 2
+
+[[menu.main]]
+  name = 'GitHub'
+  url = 'https://github.com/Prayag2'
+  weight = 3
+
+[[menu.main]]
+  name = 'KDE'
+  url = 'https://invent.kde.org/prayag'
+  weight = 4
+
+[[menu.main]]
+  name = 'Contact'
+  url = 'mailto:prayagjain2@gmail.com'
+  weight = 5

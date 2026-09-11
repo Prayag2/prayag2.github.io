@@ -1,0 +1,8 @@
+<footer class="site-footer">
+  {{- with site.Params.footerBio -}}
+    <p class="footer-tagline">{{ . }}</p>
+  {{- end -}}
+  <p class="footer-copyright">
+    {{- site.Params.copyright | default (printf "© %d %s" now.Year site.Title) -}}
+  </p>
+</footer>

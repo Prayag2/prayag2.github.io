@@ -1,0 +1,19 @@
+<nav class="site-nav" aria-label="Main Navigation">
+  <div class="nav-container">
+    {{- $currentPage := . -}}
+    {{- range site.Menus.main -}}
+      {{- $isExternal := or (hasPrefix .URL "http://") (hasPrefix .URL "https://") (hasPrefix .URL "mailto:") -}}
+      {{- $openNewTab := false -}}
+      {{- if site.Params.openLinksInNewTab -}}
+        {{- $openNewTab = true -}}
+      {{- else if and $isExternal (site.Params.openExternalLinksInNewTab | default true) -}}
+        {{- $openNewTab = true -}}
+      {{- end -}}
+      <a class="nav-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{ end }}"
+         href="{{ .URL }}"
+         {{- if $openNewTab }} target="_blank" rel="noopener noreferrer"{{ end }}>
+        {{- .Name -}}
+      </a>
+    {{- end -}}
+  </div>
+</nav>

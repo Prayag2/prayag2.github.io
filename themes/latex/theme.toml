@@ -1,0 +1,12 @@
+name = "LaTeX"
+license = "MIT"
+licenselink = ""
+description = "A minimalist, publication-grade LaTeX styled Hugo theme"
+homepage = "https://prayag2.github.io/"
+tags = ["latex", "academic", "minimal", "blog", "clean"]
+features = ["math", "disqus", "toc", "responsive"]
+min_version = "0.110.0"
+
+[author]
+  name = "Prayag Jain"
+  homepage = "https://prayag2.github.io/"

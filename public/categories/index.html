@@ -1,109 +1,212 @@
 <!DOCTYPE html>
-<html
-  lang="en-us"
-  dir="ltr"
->
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8" />
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<title>
-  Categories | Prayag Jain
-</title>
-
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-
+<meta name="color-scheme" content="light dark" />
 <script>
-  MathJax = {
-    tex: {
-      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
-      inlineMath: [['\\(', '\\)'], ['$', '$']]                  
-    },
-    loader:{
-      load: ['ui/safe']
-    },
-  };
+  (function() {
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'sepia' || saved === 'light') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>
+<title>Categories | Prayag Jain</title>
+
+
+<link rel="canonical" href="https://prayag2.github.io/categories/" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+<link rel="preload" href="/tex-gyre-schola/texgyreschola-regular.otf" as="font" type="font/otf" crossorigin>
+<style>
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('/tex-gyre-schola/texgyreschola-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('/tex-gyre-schola/texgyreschola-italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('/tex-gyre-schola/texgyreschola-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'TeX Gyre Schola';
+  src: url('/tex-gyre-schola/texgyreschola-bolditalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+</style>
+
+
+
+
+<link rel="stylesheet" href="/css/latex.d4bc2cf824cd2e0fab304d3824c2480713058aa7dd6add054fc578928adddecd.css" integrity="sha256-1Lws&#43;CTNLg&#43;rME04JMJIBxMFiqfdat0FT8V4kord3s0=">
+
+
+  
+  <link rel="stylesheet" href="/css/syntax.2dba71c87022823d5e58adc9824edb464d2f281df5cacd6a871fa496b7774c32.css" integrity="sha256-LbpxyHAigj1eWK3Jgk7bRk0vKB31ys1qhx&#43;klrd3TDI=">
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });">
 </script>
 
 
- 
-<link rel="canonical" href="http://localhost:1313/categories/" />
 
 
 <meta property="og:title" content="Categories" />
 
-<meta
-  property="og:type"
-  content="website"
-/>
-<meta property="og:url" content="http://localhost:1313/categories/" />
- 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Categories" />
-    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/index.xml" title="Prayag Jain" />    <link rel="apple-touch-icon" sizes="57x57" href="/favicon_io/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/favicon_io/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/favicon_io/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/favicon_io/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/favicon_io/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/favicon_io/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/favicon_io/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/favicon_io/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/favicon_io/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon_io/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="/favicon_io/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/favicon_io/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
- 
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/custom.css">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://prayag2.github.io/categories/" />
+
+<link rel="alternate" type="application/rss&#43;xml" href="https://prayag2.github.io/categories/index.xml" title="Prayag Jain" />
+
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Theme: Light (click to switch to Sepia)" title="Theme: Light (click to switch to Sepia)">
+  <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+  </svg>
+  <svg class="book-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+  </svg>
+  <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
+
+<script>
+  (function() {
+    var themeOrder = ['light', 'sepia', 'dark'];
+    var themeLabels = {
+      'light': { current: 'Light', next: 'Sepia' },
+      'sepia': { current: 'Sepia', next: 'Dark' },
+      'dark':  { current: 'Dark',  next: 'Light' }
+    };
+
+    function getActiveTheme() {
+      var attr = document.documentElement.getAttribute('data-theme');
+      if (attr === 'dark' || attr === 'sepia' || attr === 'light') return attr;
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark' || stored === 'sepia' || stored === 'light') return stored;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function updateButton(theme) {
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      var info = themeLabels[theme] || themeLabels['light'];
+      var label = 'Theme: ' + info.current + ' (click for ' + info.next + ')';
+      btn.setAttribute('title', label);
+      btn.setAttribute('aria-label', label);
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (e) {}
+      updateButton(theme);
+    }
+
+    var toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+      updateButton(getActiveTheme());
+      toggleBtn.addEventListener('click', function() {
+        var current = getActiveTheme();
+        var idx = themeOrder.indexOf(current);
+        if (idx === -1) idx = 0;
+        var next = themeOrder[(idx + 1) % themeOrder.length];
+        setTheme(next);
+      });
+    }
+  })();
+</script>
+
+  <div class="container">
+    
+  <header class="article-header">
+    
+      <h1 class="article-title">Categories</h1>
+    
+    
+    <div class="article-meta-group">
+      
+      
+        <div class="article-author">Prayag Jain</div>
+      
+      
+    </div>
+  </header>
 
 
-  </head>
-  <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-    <header role="banner"><nav class="path-nav" aria-label="Breadcrumb">
-  <ol>
-    
-  
-    
-  
-  <li>
-    /
-    <a href="/">Prayag Jain</a>
-    /
-  </li>
-
-  
-  <li class="current">
-    
-    <a href="/categories/">Categories</a>
-    
-  </li>
-
-  </ol>
+    <nav class="site-nav" aria-label="Main Navigation">
+  <div class="nav-container"><a class="nav-item"
+         href="/">Home</a><a class="nav-item"
+         href="/posts/">Posts</a><a class="nav-item"
+         href="https://github.com/Prayag2" target="_blank" rel="noopener noreferrer">GitHub</a><a class="nav-item"
+         href="https://invent.kde.org/prayag" target="_blank" rel="noopener noreferrer">KDE</a><a class="nav-item"
+         href="mailto:prayagjain2@gmail.com" target="_blank" rel="noopener noreferrer">Contact</a></div>
 </nav>
 
+    <main id="main-content">
+      
+<section class="posts-page" aria-label="Posts">
+  <div class="posts-page-header">
+    <h2 class="section-heading">Categories</h2>
+  </div>
+  <div class="posts-list-container"></div>
+</section>
 
-
-</header>
-    <main id="main-content" role="main">
-    <h1>Categories</h1>
-    
-    <div class="time-list">
-        <ul>
-            
-        </ul>
-    </div>
-</main>
-    <footer role="contentinfo"><p role="contentinfo">
-  &copy; Copyright 2026 &middot;
-  <a href="https://github.com/prayag2">Prayag Jain</a>
-</p>
+    </main>
+    <footer class="site-footer"><p class="footer-tagline">Did I mention that I like object-oriented programming?</p><p class="footer-copyright">© 2026 Prayag Jain</p>
 </footer>
-  </body>
+
+  </div>
+</body>
 </html>
