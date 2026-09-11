@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="color-scheme" content="light dark" />
 <script>
   (function() {
     try {
@@ -71,7 +70,7 @@
 
 
 
-<link rel="stylesheet" href="/css/latex.c0d91c97d23282f22307e09b33cf2c2f77a73275a85d72b2f442341d93aef50f.css" integrity="sha256-wNkcl9IygvIjB&#43;CbM88sL3enMnWoXXKy9EI0HZOu9Q8=">
+<link rel="stylesheet" href="/css/latex.b1ef87d9ecdcb4a5db5ee55a84a0666a0049b513d99d588fe63764ae498f4acc.css" integrity="sha256-se&#43;H2ezctKXbXuVahKBmagBJtRPZnViP5jdkrkmPSsw=">
 
 
   
@@ -152,6 +151,13 @@
         localStorage.setItem('theme', theme);
       } catch (e) {}
       updateButton(theme);
+
+      
+      if (typeof DISQUS !== 'undefined') {
+        try {
+          DISQUS.reset({ reload: true });
+        } catch (e) {}
+      }
     }
 
     var toggleBtn = document.getElementById('theme-toggle');

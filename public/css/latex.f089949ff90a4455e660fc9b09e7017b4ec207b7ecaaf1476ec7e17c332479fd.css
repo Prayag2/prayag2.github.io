@@ -1001,42 +1001,11 @@ figcaption {
   display: none;
 }
 
-/* Comments Section (Disqus) */
+/* Comments */
 .comments-section {
   margin-top: 3.5rem;
   padding-top: 1.5rem;
   border-top: var(--rule-thin);
-  width: 100%;
-}
-
-#disqus_thread {
-  width: 100%;
-  min-height: 220px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-#disqus_thread iframe {
-  background-color: var(--bg-color) !important;
-}
-
-html[data-theme="dark"] #disqus_thread,
-html[data-theme="dark"] #disqus_thread iframe {
-  color-scheme: dark !important;
-}
-
-html[data-theme="light"] #disqus_thread,
-html[data-theme="light"] #disqus_thread iframe,
-html[data-theme="sepia"] #disqus_thread,
-html[data-theme="sepia"] #disqus_thread iframe {
-  color-scheme: light !important;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not([data-theme="sepia"]) #disqus_thread,
-  :root:not([data-theme="light"]):not([data-theme="sepia"]) #disqus_thread iframe {
-    color-scheme: dark !important;
-  }
 }
 
 /* -------------------------------------------------------------

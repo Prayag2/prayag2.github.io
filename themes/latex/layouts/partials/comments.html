@@ -1,5 +1,19 @@
 {{- if and site.Config.Services.Disqus.Shortname (ne .Params.comments false) (or site.Params.comments .Params.comments) -}}
   <section class="comments-section" aria-label="Comments">
-    {{ template "_internal/disqus.html" . }}
+    <div id="disqus_thread"></div>
+    <script>
+      window.disqus_config = function () {
+        this.page.url = '{{ .Permalink }}';
+        this.page.identifier = '{{ .File.UniqueID | default .RelPermalink }}';
+        this.page.title = '{{ .Title }}';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://{{ site.Config.Services.Disqus.Shortname }}.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </section>
 {{- end -}}

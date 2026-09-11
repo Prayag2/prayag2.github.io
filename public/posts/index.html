@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="color-scheme" content="light dark" />
 <script>
   (function() {
     try {
@@ -17,7 +16,7 @@
 <title>Posts | Prayag Jain</title>
 
 
-<link rel="canonical" href="http://localhost:1313/posts/" />
+<link rel="canonical" href="https://prayag2.github.io/posts/" />
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +70,7 @@
 
 
 
-<link rel="stylesheet" href="/css/latex.c0d91c97d23282f22307e09b33cf2c2f77a73275a85d72b2f442341d93aef50f.css" integrity="sha256-wNkcl9IygvIjB&#43;CbM88sL3enMnWoXXKy9EI0HZOu9Q8=">
+<link rel="stylesheet" href="/css/latex.b1ef87d9ecdcb4a5db5ee55a84a0666a0049b513d99d588fe63764ae498f4acc.css" integrity="sha256-se&#43;H2ezctKXbXuVahKBmagBJtRPZnViP5jdkrkmPSsw=">
 
 
   
@@ -100,9 +99,9 @@
 <meta property="og:title" content="Posts" />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/posts/" />
+<meta property="og:url" content="https://prayag2.github.io/posts/" />
 
-<link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/posts/index.xml" title="Prayag Jain" />
+<link rel="alternate" type="application/rss&#43;xml" href="https://prayag2.github.io/posts/index.xml" title="Prayag Jain" />
 
 </head>
 <body>
@@ -152,6 +151,13 @@
         localStorage.setItem('theme', theme);
       } catch (e) {}
       updateButton(theme);
+
+      
+      if (typeof DISQUS !== 'undefined') {
+        try {
+          DISQUS.reset({ reload: true });
+        } catch (e) {}
+      }
     }
 
     var toggleBtn = document.getElementById('theme-toggle');
