@@ -168,15 +168,11 @@ html[data-theme="light"] {
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  max-width: 100%;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-serif);
@@ -190,7 +186,6 @@ body {
 }
 
 .container {
-  width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 2.5rem 1.5rem;
@@ -1091,6 +1086,11 @@ html[data-theme="sepia"] #disqus_thread iframe {
     margin: 2.25rem 0 1.75rem 0;
   }
 
+  .article-content,
+  .home-about-content {
+    text-align: left;
+  }
+
   .article-content blockquote {
     margin: 1.5rem 1rem;
   }
@@ -1186,34 +1186,5 @@ html[data-theme="sepia"] #disqus_thread iframe {
   .theme-toggle svg {
     width: 15px;
     height: 15px;
-  }
-
-  /* Heading metadata stacks cleanly on mobile screens */
-  h1:has(.heading-meta, .meta-right, .meta),
-  h2:has(.heading-meta, .meta-right, .meta),
-  h3:has(.heading-meta, .meta-right, .meta),
-  h4:has(.heading-meta, .meta-right, .meta),
-  h5:has(.heading-meta, .meta-right, .meta),
-  h6:has(.heading-meta, .meta-right, .meta) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .heading-meta,
-  .meta-right,
-  h1 .meta,
-  h2 .meta,
-  h3 .meta,
-  h4 .meta,
-  h5 .meta,
-  h6 .meta {
-    float: none;
-    margin-left: 0;
-    text-align: left;
-    font-size: 0.95rem;
-    display: block;
-    width: 100%;
   }
 }
