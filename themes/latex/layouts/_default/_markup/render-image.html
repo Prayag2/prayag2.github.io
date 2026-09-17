@@ -7,9 +7,9 @@
 {{- end -}}
 {{- $url := $src -}}
 {{- if $image -}}
-  {{- $url = $image.Permalink -}}
+  {{- $url = $image.RelPermalink -}}
 {{- else if not (or (hasPrefix $src "http://") (hasPrefix $src "https://")) -}}
-  {{- $url = $src | absURL -}}
+  {{- $url = $src | relURL -}}
 {{- end -}}
 <figure>
   <img

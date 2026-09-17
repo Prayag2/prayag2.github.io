@@ -2,6 +2,7 @@ baseURL = 'https://prayag2.github.io/'
 languageCode = 'en-us'
 title = 'Prayag Jain'
 theme = 'latex'
+buildFuture = true
 
 [params]
   subtitle = 'Software Engineer'

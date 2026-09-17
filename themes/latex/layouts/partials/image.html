@@ -40,11 +40,11 @@
 
 {{- $url := "" -}}
 {{- if $image -}}
-  {{- $url = $image.Permalink -}}
+  {{- $url = $image.RelPermalink -}}
 {{- else if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
   {{- $url = $src -}}
 {{- else -}}
-  {{- $url = $src | absURL -}}
+  {{- $url = $src | relURL -}}
 {{- end -}}
 
 {{- if $caption -}}
