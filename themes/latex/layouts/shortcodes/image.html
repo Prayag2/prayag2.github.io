@@ -1,0 +1,29 @@
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- $image := .Page.Resources.GetMatch $src -}}
+{{- if not $image -}}
+  {{- $image = resources.Get $src -}}
+{{- end -}}
+{{- $url := "" -}}
+{{- if $image -}}
+  {{- $url = $image.Permalink -}}
+{{- else if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+  {{- $url = $src -}}
+{{- else -}}
+  {{- $url = $src | absURL -}}
+{{- end -}}
+{{- $alt := .Get "alt" | default (.Get 1) | default "" -}}
+{{- $caption := .Get "caption" | default $alt -}}
+{{- $title := .Get "title" -}}
+{{- $class := .Get "class" -}}
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+
+{{- if $caption -}}
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  <img src="{{ $url }}" alt="{{ $alt }}" loading="{{ $loading }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }}{{ with $height }} height="{{ . }}"{{ end }} />
+  <figcaption>{{ $caption }}</figcaption>
+</figure>
+{{- else -}}
+<img src="{{ $url }}" alt="{{ $alt }}" loading="{{ $loading }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }}{{ with $height }} height="{{ . }}"{{ end }} />
+{{- end -}}

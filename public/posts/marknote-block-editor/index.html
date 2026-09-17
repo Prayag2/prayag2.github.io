@@ -72,7 +72,7 @@
 
 
 
-<link rel="stylesheet" href="/css/latex.48e7d1d6ae77f5201cb5597fc101f2b9e309ebf8917c7fa900fd03ac98c47132.css" integrity="sha256-SOfR1q539SActVl/wQHyueMJ6/iRfH&#43;pAP0DrJjEcTI=">
+<link rel="stylesheet" href="/css/latex.314aa14a1e588a73c54fe24be74298d461496ee732d903ce223fe2ccb650df7a.css" integrity="sha256-MUqhSh5YinPFT&#43;JL50KY1GFJbucy2QPOIj/izLZQ33o=">
 
 
   
@@ -255,10 +255,10 @@
 <p>Implementing this block editor was challenging yet fun. The first challenge was to render nested components in QML. This challenge and how I solved it is described in detail <a href="/posts/gsoc-june-update/#implementing-delegates">here</a>
 . After this, I was able to easily render markdown documents using nested QML components. The next challenge was to allow editing those blocks.</p>
 <h3 id="editing-blocks">Editing Blocks</h3>
-<p>MD4Qt parses markdown in the form of abstract syntax trees (ASTs). You can traverse the tree, modify it, or delete nodes from it. What I needed was a way to edit the text content. When you edit a block in realtime, parsing its markdown content on every keystroke is not a good idea because of potential performance issues. This is why, the block editor is implemented this way: you will see the raw markdown of the paragraph block you&rsquo;re currently editing. Only when the current block goes out of focus (by switching to another block or pressing <kbd>Esc</kbd>), the content will be parsed. This means you can paste an entire markdown document in a block and it will easily expand into blocks as if you had pasted actual blocks! Auto transformation for blocks based on very simple rules is still present. For examples, you can create headings by pressing one or more times <code>#</code> followed by a space. These are only a handful of these rules so there aren&rsquo;t any edge cases.</p>
+<p>MD4Qt parses markdown in the form of abstract syntax trees (ASTs). You can traverse the tree, modify it, or delete nodes from it. What I needed was a way to edit the text content. When you edit a block in realtime, parsing its markdown content on every keystroke is not a good idea because of potential performance issues. This is why, the block editor is implemented this way: you will see the raw markdown of the paragraph block you&rsquo;re currently editing. Only when the current block goes out of focus (by switching to another block or pressing <kbd>Esc</kbd>), the content will be parsed. This means you can paste an entire markdown document in a block and it will easily expand into blocks as if you had pasted actual blocks! Auto transformation for blocks based on very simple rules is still present. For example, you can create headings by pressing one or more times <code>#</code> followed by a space. These are only a handful of rules so there aren&rsquo;t any edge cases.</p>
 <p><figure>
   <img
-    src="editing-blocks.gif"
+    src="http://localhost:1313/posts/marknote-block-editor/editing-blocks.gif"
     alt="Editing Blocks Demo"
     loading="lazy"
     
@@ -268,7 +268,7 @@
 <p>Tables are very complex in nature. Each table has multiple rows and columns, which means multiple text fields. I took inspiration from other block editors here. Each table is just one block. It can not have nested blocks inside it. This made it easier to implement them. In the old editor, tables were very simple. They didn&rsquo;t have any controls to delete or modify rows. Since each component here is designed in QML, I had a lot of flexibility in how I want the tables to look and be controlled. So each table now has buttons to insert and delete rows and columns. I&rsquo;ll soon also add the ability to drag and drop table columns and rows.</p>
 <p><figure>
   <img
-    src="table.gif"
+    src="http://localhost:1313/posts/marknote-block-editor/table.gif"
     alt="Table Demo"
     loading="lazy"
     
@@ -278,7 +278,7 @@
 <p>The next challenge was to implement drag-and-drop. Since markdown can become complex with its nesting features, I needed a way to make sure it feels very natural. The most important thing was to place the drag handle in a place which does not make it look awkward. Since blocks can be nested, each nested block had to have its own drag handle. Most block editors either don&rsquo;t support nested blocks or the ones which do, do not allow dragging them when they&rsquo;re nested. I wanted both, so after many trials, I made the handles invisible at first. When you hover over a block, you will see its drag handle, and when you hover over the drag handle, the entire block shifts a little towards the right, clearly indicating which part of the block you&rsquo;re about to drag (which is essential to know here because of nesting). I immediately liked this way of doing it so I stuck with it. Implementing the remaining logic was pretty straightfoward with QML&rsquo;s <code>DropArea</code> and <code>DragHandler</code> elements.</p>
 <p><figure>
   <img
-    src="drag-and-drop.gif"
+    src="http://localhost:1313/posts/marknote-block-editor/drag-and-drop.gif"
     alt="Drag and Drop Demo"
     loading="lazy"
     
@@ -290,7 +290,7 @@
 <p>This project was part of my Google Summer of Code 2026 project. I had a lot of fun implementing it and learned a lot. I&rsquo;m very grateful to my mentors <a href="https://carlschwan.eu/" target="_blank" rel="noopener noreferrer">Carl Schwan</a>
  and <a href="https://invent.kde.org/mbruchert" target="_blank" rel="noopener noreferrer">Mathis Brüchert</a>
  for their support in the development of the block editor. My plans are to continue working on Marknote to make it the best note taking app on Linux. I&rsquo;m also involved in other KDE projects such as <a href="https://invent.kde.org/graphics/drawy" target="_blank" rel="noopener noreferrer">Drawy</a>
- and am planning to contribute to Plasma as well as I recently switched from Hyprland to KDE Plasma and have been loving the convenience it comes with. I believe the KDE ecosystem is the future of Linux and I want to contribute to it as much as I can. Thanks for reading this blog. As always, no AI was used to write this blog and all words are my own.</p>
+ and am planning to contribute to Plasma as well as I recently switched from Hyprland to KDE Plasma and have been loving the convenience it provides. I believe the KDE ecosystem is the future of Linux and I want to contribute to it as much as I can. Thanks for reading this blog. As always, no AI was used to write this blog and all words are my own.</p>
 
   </div>
 

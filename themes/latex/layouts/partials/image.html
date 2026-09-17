@@ -1,0 +1,57 @@
+{{- $src := "" -}}
+{{- $alt := "" -}}
+{{- $caption := "" -}}
+{{- $title := "" -}}
+{{- $class := "" -}}
+{{- $width := "" -}}
+{{- $height := "" -}}
+{{- $loading := "lazy" -}}
+{{- $page := . -}}
+
+{{- if reflect.IsMap . -}}
+  {{- $src = .src | default .Src -}}
+  {{- $alt = .alt | default .Alt | default "" -}}
+  {{- $caption = .caption | default .Caption | default $alt -}}
+  {{- $title = .title | default .Title -}}
+  {{- $class = .class | default .Class -}}
+  {{- $width = .width | default .Width -}}
+  {{- $height = .height | default .Height -}}
+  {{- with .loading | default .Loading -}}{{- $loading = . -}}{{- end -}}
+  {{- with .page | default .Page -}}{{- $page = . -}}{{- end -}}
+{{- else if reflect.IsSlice . -}}
+  {{- $src = index . 0 -}}
+  {{- if gt (len .) 1 -}}{{- $alt = index . 1 -}}{{- end -}}
+  {{- $caption = $alt -}}
+{{- else -}}
+  {{- $src = . -}}
+{{- end -}}
+
+{{- $image := "" -}}
+{{- if and $page (reflect.IsMap $page) (isset $page "Resources") -}}
+  {{- $image = $page.Resources.GetMatch $src -}}
+{{- else if and $page (not (reflect.IsMap $page)) -}}
+  {{- with $page.Resources -}}
+    {{- $image = .GetMatch $src -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $image -}}
+  {{- $image = resources.Get $src -}}
+{{- end -}}
+
+{{- $url := "" -}}
+{{- if $image -}}
+  {{- $url = $image.Permalink -}}
+{{- else if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+  {{- $url = $src -}}
+{{- else -}}
+  {{- $url = $src | absURL -}}
+{{- end -}}
+
+{{- if $caption -}}
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  <img src="{{ $url }}" alt="{{ $alt }}" loading="{{ $loading }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }}{{ with $height }} height="{{ . }}"{{ end }} />
+  <figcaption>{{ $caption }}</figcaption>
+</figure>
+{{- else -}}
+<img src="{{ $url }}" alt="{{ $alt }}" loading="{{ $loading }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }}{{ with $height }} height="{{ . }}"{{ end }} />
+{{- end -}}

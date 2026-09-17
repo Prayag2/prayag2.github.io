@@ -1,0 +1,1 @@
+{{- partial "image.html" (dict "src" (.Get "src" | default (.Get 0)) "alt" (.Get "alt" | default (.Get 1)) "caption" (.Get "caption") "title" (.Get "title") "class" (.Get "class") "width" (.Get "width") "height" (.Get "height") "loading" (.Get "loading") "page" .Page) -}}

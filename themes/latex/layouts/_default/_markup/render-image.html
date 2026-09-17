@@ -1,9 +1,19 @@
 {{- $alt := .Text -}}
 {{- $src := .Destination -}}
 {{- $title := .Title -}}
+{{- $image := .Page.Resources.GetMatch $src -}}
+{{- if not $image -}}
+  {{- $image = resources.Get $src -}}
+{{- end -}}
+{{- $url := $src -}}
+{{- if $image -}}
+  {{- $url = $image.Permalink -}}
+{{- else if not (or (hasPrefix $src "http://") (hasPrefix $src "https://")) -}}
+  {{- $url = $src | absURL -}}
+{{- end -}}
 <figure>
   <img
-    src="{{ $src }}"
+    src="{{ $url }}"
     alt="{{ $alt }}"
     loading="lazy"
     {{ with $title }}title="{{ . }}"{{ end }}

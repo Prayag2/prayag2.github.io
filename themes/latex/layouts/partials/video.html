@@ -1,0 +1,26 @@
+{{- $src := "" -}}
+{{- $page := . -}}
+{{- if reflect.IsMap . -}}
+  {{- $src = .src | default .Src -}}
+  {{- with .page | default .Page -}}{{- $page = . -}}{{- end -}}
+{{- else -}}
+  {{- $src = . -}}
+{{- end -}}
+{{- $video := "" -}}
+{{- if and $page (reflect.IsMap $page) (isset $page "Resources") -}}
+  {{- $video = $page.Resources.GetMatch $src -}}
+{{- else if and $page (not (reflect.IsMap $page)) -}}
+  {{- with $page.Resources -}}
+    {{- $video = .GetMatch $src -}}
+  {{- end -}}
+{{- end -}}
+{{- $url := "" -}}
+{{- if $video -}}
+  {{- $url = $video.RelPermalink -}}
+{{- else -}}
+  {{- $url = $src | relURL -}}
+{{- end -}}
+<video controls width="100%">
+  <source src="{{ $url }}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
