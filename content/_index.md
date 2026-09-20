@@ -32,7 +32,7 @@ MatchX is a low-latency cryptocurrency matching engine written in C++. I built i
 
 ## Google Summer of Code <span class="heading-meta">May 2026 – Sep 2026</span>
 *Open Source Contributor (KDE Community)*  
-I worked on Marknote, a note-taking application, where I built a Markdown-based block editor using Qt, QML, and JavaScript. I replaced its 5,000+ line editor with a more modular design and built a Markdown engine that parses documents into a tree structure for asynchronous parsing and WYSIWYG editing.
+I rebuilt Marknote’s editor into a tree-based block editor using C++ and Qt/QML, replacing over 2,000 lines of fragile code. To handle deeply nested Markdown like lists inside blockquotes and tables, I implemented recursive rendering in the UI to dynamically display and update complex document trees without lag. I also added drag-and-drop block reordering and an undo/redo system that keeps the entire document state in sync.
 
 ## Visa <span class="heading-meta">Jun 2026 – Aug 2026</span>
 *Software Engineering Intern*  
